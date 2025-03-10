@@ -1,5 +1,4 @@
 ﻿using Domain.Common;
-using Domain.Entities.Multi_Tenant;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Text.Json.Serialization;
 
@@ -20,7 +19,7 @@ namespace Domain.Entities.Account
         public string UserName { get; set; }
         public bool IsActive { get; set; } = true; // Account status
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedAt { get; set; }    
+        public DateTime? UpdatedAt { get; set; }
 
         // Relationships
         public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
