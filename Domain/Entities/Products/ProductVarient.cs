@@ -5,7 +5,7 @@ namespace Domain.Entities.Products
     public class ProductVariant : BaseAuditableEntity
     {
         public int ProductId { get; set; }
-        public ProductDetail Product { get; set; }
+        public Product Product { get; set; }
 
         public int ProductAttributeValueId { get; set; }
         public ProductAttributeValue ProductAttributeValue { get; set; }

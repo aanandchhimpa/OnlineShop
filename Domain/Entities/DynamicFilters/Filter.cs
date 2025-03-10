@@ -12,7 +12,7 @@ namespace Domain.Entities.DynamicFilters
     public class ProductFilter : BaseAuditableEntity
     {
         public int ProductId { get; set; }
-        public ProductDetail Product { get; set; }
+        public Product Product { get; set; }
         public int FilterId { get; set; }
         public Filter Filter { get; set; }
     }

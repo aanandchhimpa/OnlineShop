@@ -10,7 +10,7 @@ namespace Domain.Entities.Categories
         public int? ParentCategoryId { get; set; } // Self-referencing for nested categories
         public Category ParentCategory { get; set; }
         public ICollection<Category> SubCategories { get; set; } = new List<Category>();
-        public ICollection<ProductDetail> Products { get; set; } = new List<ProductDetail>();
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 
 
