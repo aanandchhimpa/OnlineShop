@@ -20,11 +20,7 @@ namespace Domain.Entities.Account
         public string UserName { get; set; }
         public bool IsActive { get; set; } = true; // Account status
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedAt { get; set; }
-
-        // Multi-tenancy
-        public int TenantId { get; set; }
-        public virtual Tenant Tenant { get; set; }
+        public DateTime? UpdatedAt { get; set; }    
 
         // Relationships
         public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
