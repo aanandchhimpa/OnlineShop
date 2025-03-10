@@ -1,9 +1,9 @@
-﻿using Domain.Entities.Categories;
-using Domain.Entities.Multi_Tenant;
+﻿using Domain.Common;
+using Domain.Entities.Categories;
 
 namespace Domain.Entities.Products
 {
-    public class Product : BaseTenantEntity
+    public class Product :BaseAuditableEntity
     {
         public string Name { get; set; }
         public string Slug { get; set; } // SEO-Friendly URL

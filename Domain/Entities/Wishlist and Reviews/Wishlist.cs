@@ -17,7 +17,7 @@ namespace Domain.Entities.Wishlist_and_Reviews
     public class WishlistItem : BaseAuditableEntity
     {
         public int ProductId { get; set; }
-        public ProductDetail Product { get; set; }
+        public Product Product { get; set; }
         public int WishlistId { get; set; }
         public Wishlist Wishlist { get; set; }
     }

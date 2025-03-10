@@ -1,5 +1,4 @@
 ﻿using Domain.Common;
-using Domain.Entities.Multi_Tenant;
 
 namespace Domain.Entities.Products
 {
