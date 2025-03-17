@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Common.Enums;
 using Domain.Entities.Account;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,16 +28,4 @@ namespace Domain.Entities.Notifications
 
         public string ReferenceType { get; set; } // Stores type like "Order", "Product"
     }
-
-    public enum NotificationType
-    {
-        OrderUpdate, Promotion, AccountActivity, Wishlist, SystemAlert, Review
-    }
-
-    public enum NotificationChannel
-    {
-        InApp, Email, SMS, PushNotification
-    }
-
-
 }

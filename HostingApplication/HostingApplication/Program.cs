@@ -1,5 +1,7 @@
 using HostingApplication.Client.Pages;
 using HostingApplication.Components;
+using Microsoft.EntityFrameworkCore;
+using Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Configure PostgreSQL with Entity Framework Core
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,14 +1,11 @@
 ﻿using Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities.Account
 {
     public class UserProfile : BaseAuditableEntity
     {
+        [ForeignKey("UserId")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
 

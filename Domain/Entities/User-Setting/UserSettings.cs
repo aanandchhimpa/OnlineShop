@@ -1,11 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Entities.Account;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities.User_Setting
 {

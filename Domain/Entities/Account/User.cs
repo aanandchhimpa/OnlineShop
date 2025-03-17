@@ -24,7 +24,7 @@ namespace Domain.Entities.Account
         // Relationships
         public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
-        public virtual UserProfile Profile { get; set; }
+        //public virtual UserProfile Profile { get; set; }
     }
 
 
