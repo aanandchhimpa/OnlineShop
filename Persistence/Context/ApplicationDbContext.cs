@@ -10,10 +10,11 @@ using Domain.Entities.User_Setting;
 using Domain.Entities.Website;
 using Domain.Entities.Wishlist_and_Reviews;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Persistence.Context
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<WebsiteSettings> WebsiteSettings { get; set; }
         public DbSet<WebsiteContent> WebsiteContents { get; set; }
@@ -43,17 +44,20 @@ namespace Persistence.Context
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
-  
-  
-  
+
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
-              protected override void OnModelCreating(ModelBuilder modelBuilder)
-              {
-                modelBuilder.Entity<User>().HasKey(x => x.Id);     
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasKey(x => x.Id);
 
-              }
+            // Automatically apply all IEntityTypeConfiguration<T> implementations
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+        }
     }
 }
