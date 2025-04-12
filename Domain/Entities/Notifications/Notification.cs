@@ -7,7 +7,7 @@ namespace Domain.Entities.Notifications
 {
     public class Notification : BaseAuditableEntity
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; }
@@ -24,7 +24,7 @@ namespace Domain.Entities.Notifications
 
         public NotificationChannel Channel { get; set; } // Enum: In-App, Email, SMS, Push
 
-        public int? ReferenceId { get; set; } // Can be OrderId, ProductId, etc.
+        public Guid? ReferenceId { get; set; } // Can be OrderId, ProductId, etc.
 
         public string ReferenceType { get; set; } // Stores type like "Order", "Product"
     }

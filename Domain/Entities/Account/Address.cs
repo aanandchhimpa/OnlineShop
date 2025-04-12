@@ -4,7 +4,7 @@ namespace Domain.Entities.Account
 {
     public class Address : BaseAuditableEntity
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public virtual User User { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

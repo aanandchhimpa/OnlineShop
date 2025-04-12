@@ -1,11 +1,13 @@
 ﻿using Domain.Common;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
 namespace Domain.Entities.Account
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<Guid>
     {
+
         public string FullName { get; set; }
         public string ProfilePictureUrl { get; set; } // User profile image
         public DateTime DateOfBirth { get; set; }

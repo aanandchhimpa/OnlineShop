@@ -6,7 +6,7 @@ namespace Domain.Entities.User_Setting
 {
     public class UserSettings : BaseAuditableEntity
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; }

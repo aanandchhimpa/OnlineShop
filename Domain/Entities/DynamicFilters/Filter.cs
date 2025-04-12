@@ -13,7 +13,7 @@ namespace Domain.Entities.DynamicFilters
 
     public class FilterValue : BaseAuditableEntity
     {
-        public int FilterId { get; set; }  // Foreign Key to Filter
+        public Guid FilterId { get; set; }  // Foreign Key to Filter
         public virtual Filter Filter { get; set; }
 
         public string Value { get; set; } // e.g., "Red", "Large", "Sweet"
@@ -23,13 +23,13 @@ namespace Domain.Entities.DynamicFilters
 
     public class ProductFilter : BaseAuditableEntity
     {
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public virtual Product Product { get; set; }
 
-        public int FilterId { get; set; }
+        public Guid FilterId { get; set; }
         public virtual Filter Filter { get; set; }
 
-        public int FilterValueId { get; set; }
+        public Guid FilterValueId { get; set; }
         public virtual FilterValue FilterValue { get; set; }
     }
 

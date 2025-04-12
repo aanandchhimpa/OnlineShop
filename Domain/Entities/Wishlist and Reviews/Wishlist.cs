@@ -7,7 +7,7 @@ namespace Domain.Entities.Wishlist_and_Reviews
 {
     public class Wishlist : BaseAuditableEntity
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; }

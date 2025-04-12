@@ -12,4 +12,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Website\" />
+    <Folder Include="Admin\Account\" />
+    <Folder Include="Admin\Orders\" />
+    <Folder Include="Admin\Website-setting\" />
+    <Folder Include="Admin\Website-setting\" />
+  </ItemGroup>
+
 </Project>

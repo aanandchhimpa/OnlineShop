@@ -15,7 +15,19 @@
     <Folder Include="Extensions\Product-Service\Category-service\Queries\GetAll\" />
     <Folder Include="Extensions\Product-Service\Category-service\Queries\GetById\" />
     <Folder Include="Extensions\Product-Service\Product\" />
-    <Folder Include="Features\" />
+    <Folder Include="Features\Account-Service\" />
+    <Folder Include="Features\Products-Service\Brands - Copy\Command\Create\" />
+    <Folder Include="Features\Products-Service\Brands - Copy\Command\Delete\" />
+    <Folder Include="Features\Products-Service\Brands - Copy\Command\Update\" />
+    <Folder Include="Features\Products-Service\Brands - Copy\Queries\GetAllQuery\" />
+    <Folder Include="Features\Products-Service\Brands - Copy\Queries\GetbyIdQuery\" />
+    <Folder Include="Features\Products-Service\Brands\Command\Create\" />
+    <Folder Include="Features\Products-Service\Brands\Command\Delete\" />
+    <Folder Include="Features\Products-Service\Brands\Command\Update\" />
+    <Folder Include="Features\Products-Service\Brands\Queries\GetAllQuery\" />
+    <Folder Include="Features\Products-Service\Brands\Queries\GetbyIdQuery\" />
+    <Folder Include="Features\Website-Service\" />
+    <Folder Include="Features\Order-Service\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@ using Domain.Entities.Products;
 using Domain.Entities.User_Setting;
 using Domain.Entities.Website;
 using Domain.Entities.Wishlist_and_Reviews;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -53,7 +54,9 @@ namespace Persistence.Context
         { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasKey(x => x.Id);
+            // Ensure IdentityUserLogin has a composite key
+            modelBuilder.Entity<IdentityUserLogin<string>>()
+                .HasKey(l => new { l.LoginProvider, l.ProviderKey });
 
             // Automatically apply all IEntityTypeConfiguration<T> implementations
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

@@ -6,7 +6,7 @@ namespace Domain.Entities.Account
     public class UserProfile : BaseAuditableEntity
     {
         [ForeignKey("UserId")]
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public virtual User User { get; set; }
 
         public string Occupation { get; set; }

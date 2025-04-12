@@ -1,0 +1,56 @@
+﻿@page "/admin/categories/{Action}/{Id?}"
+@using HostingApplication.Client.Admin.Products.Services
+@using HostingApplication.Client.Models
+@inject AdminCategoryService AdminCategoryService
+@inject NavigationManager Navigation
+
+<h3>@(IsEdit ? "Edit" : "Add") Category</h3>
+
+@if (category == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <form @onsubmit="HandleSubmit">
+        <div class="mb-3">
+            <label class="form-label">Category Name</label>
+            <input class="form-control" @bind="category.Name" required />
+        </div>
+        <button type="submit" class="btn btn-success">@(IsEdit ? "Update" : "Create")</button>
+        <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+    </form>
+}
+
+@code {
+    [Parameter] public string Action { get; set; }
+    [Parameter] public Guid? Id { get; set; }
+
+    private CategoryDto category = new CategoryDto();
+    private bool IsEdit => Action == "edit";
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IsEdit && Id.HasValue)
+        {
+            category = await AdminCategoryService.GetCategoryByIdAsync(Id.Value) ?? new CategoryDto();
+        }
+    }
+
+    private async Task HandleSubmit()
+    {
+        bool success = IsEdit
+            ? await AdminCategoryService.UpdateCategoryAsync(category)
+            : await AdminCategoryService.CreateCategoryAsync(category);
+
+        if (success)
+        {
+            Navigation.NavigateTo("/admin/categories");
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/admin/categories");
+    }
+}

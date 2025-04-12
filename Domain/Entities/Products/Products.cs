@@ -10,9 +10,9 @@ namespace Domain.Entities.Products
         public string Name { get; set; }
         public string Slug { get; set; }
         public string Description { get; set; }
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        public int? BrandId { get; set; }
+        public Guid? BrandId { get; set; }
         public virtual Brand Brand { get; set; } // New: Product belongs to a brand
         public bool IsActive { get; set; } = true;
         public decimal BasePrice { get; set; }

@@ -4,7 +4,7 @@ namespace Domain.Entities.Products
 {
     public class ProductVariant : BaseAuditableEntity
     {
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public virtual Product Product { get; set; }
 
         public decimal? AdditionalPrice { get; set; }
@@ -15,13 +15,13 @@ namespace Domain.Entities.Products
 
     public class ProductVariantAttribute : BaseAuditableEntity
     {
-        public int ProductVariantId { get; set; }
+        public Guid ProductVariantId { get; set; }
         public virtual ProductVariant ProductVariant { get; set; }
 
-        public int ProductAttributeId { get; set; }
+        public Guid ProductAttributeId { get; set; }
         public virtual ProductAttribute ProductAttribute { get; set; }
 
-        public int ProductAttributeValueId { get; set; }
+        public Guid ProductAttributeValueId { get; set; }
         public virtual ProductAttributeValue ProductAttributeValue { get; set; }
     }
 
