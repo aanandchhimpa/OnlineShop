@@ -4,23 +4,17 @@
 @inject AdminCategoryService AdminCategoryService
 @inject NavigationManager Navigation
 
-<h3>@(IsEdit ? "Edit" : "Add") Category</h3>
-
-@if (category == null)
-{
-    <p>Loading...</p>
-}
-else
-{
-    <form @onsubmit="HandleSubmit">
-        <div class="mb-3">
-            <label class="form-label">Category Name</label>
-            <input class="form-control" @bind="category.Name" required />
-        </div>
-        <button type="submit" class="btn btn-success">@(IsEdit ? "Update" : "Create")</button>
-        <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
-    </form>
-}
+<MudPaper Class="pa-4">
+    <MudText Typo="Typo.h5">@(IsEdit ? "Edit" : "Add") Category</MudText>
+    <EditForm Model="category" OnValidSubmit="HandleSubmit">
+        <MudTextField @bind-Value="category.Name" Label="Name" Required="true" />
+        <MudTextField @bind-Value="category.Description" Label="Description" />
+        <MudTextField @bind-Value="category.Slug" Label="Slug" Required="true" />
+        @* <MudCheckBox @bind-Checked="category.IsActive" Label="Active" /> *@
+        <MudButton Type="Submit" Variant="Variant.Filled" Color="Color.Success">@(IsEdit ? "Update" : "Create")</MudButton>
+        <MudButton Variant="Variant.Outlined" Color="Color.Secondary" OnClick="Cancel">Cancel</MudButton>
+    </EditForm>
+</MudPaper>
 
 @code {
     [Parameter] public string Action { get; set; }

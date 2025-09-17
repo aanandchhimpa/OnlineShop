@@ -1,5 +1,55 @@
-﻿<h3>CategoryList</h3>
+﻿@page "/admin/categories"
+@inject AdminCategoryService CategoryService
+@inject NavigationManager Navigation
+
+<MudPaper Class="pa-4">
+    <MudText Typo="Typo.h5">Categories</MudText>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddCategory" Class="mb-2">Add Category</MudButton>
+    <MudTable Items="categories" Hover="true">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Slug</MudTh>
+            <MudTh>Active</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Description">@context.Description</MudTd>
+            <MudTd DataLabel="Slug">@context.Slug</MudTd>
+            <MudTd DataLabel="Active">@context.IsActive</MudTd>
+            <MudTd>
+                <MudButton Variant="Variant.Outlined" Color="Color.Info" OnClick="() => EditCategory(context.Id)" Size="Size.Small">Edit</MudButton>
+                <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="() => DeleteCategory(context.Id)" Size="Size.Small">Delete</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>
 
 @code {
+    private List<CategoryDto>? categories;
 
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await CategoryService.GetCategoriesAsync();
+    }
+
+    private void AddCategory()
+    {
+        Navigation.NavigateTo("/admin/categories/add");
+    }
+
+    private void EditCategory(Guid id)
+    {
+        Navigation.NavigateTo($"/admin/categories/edit/{id}");
+    }
+
+    private async Task DeleteCategory(Guid id)
+    {
+        if (await CategoryService.DeleteCategoryAsync(id))
+        {
+            categories = await CategoryService.GetCategoriesAsync();
+            StateHasChanged();
+        }
+    }
 }

@@ -1,0 +1,22 @@
+@inherits LayoutComponentBase
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Color="Color.Primary" Elevation="4">
+        <MudText Typo="Typo.h6">Admin Dashboard</MudText>
+    </MudAppBar>
+    <MudDrawer Open="true" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Mini">
+        <MudNavMenu>
+            <MudNavLink Href="/admin/brands" Icon="@Icons.Material.Filled.Store">Brands</MudNavLink>
+            <MudNavLink Href="/admin/categories" Icon="@Icons.Material.Filled.Category">Categories</MudNavLink>
+            <MudNavLink Href="/admin/products" Icon="@Icons.Material.Filled.Inventory">Products</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
